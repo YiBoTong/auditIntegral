@@ -7,9 +7,7 @@
   <layout>
     <header slot="name"></header>
     <menu slot="menu"></menu>
-    <content slot="content">
-      <router-view></router-view>
-    </content>
+    <router-view slot="content"></router-view>
   </layout>
 </template>
 <script>
