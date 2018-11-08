@@ -6,7 +6,7 @@
 <template>
   <div>
     <div class="login-container">
-      <div  class="login">
+      <div class="login">
         <div class="title">
           <span>
           稽核积分系统
@@ -32,9 +32,9 @@
     props: [],
     data () {
       return {
-        data:{
-          user:"admin",
-          password:"admin",
+        data: {
+          user: 'admin',
+          password: 'admin'
         }
       };
     },
@@ -45,10 +45,10 @@
       // 登录系统
       login () {
         console.log(this.data);
-        this.$route.push({
-          path:"",
-          name:""
-        })
+        //
+        this.$router.push({
+          name: 'manage'
+        });
       }
     },
     created () {
@@ -62,5 +62,5 @@
 </script>
 
 <style lang="sass">
-@import "../assets/sass/index.scss";
+  @import "../assets/sass/index.scss";
 </style>

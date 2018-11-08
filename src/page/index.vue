@@ -12,7 +12,7 @@
 </template>
 <script>
   /* 当前组件必要引入 */
-  import Content from '../components/content';
+  import Layout from '../components/layout';
   export default {
     name: 'index',
     props: [],
@@ -30,7 +30,7 @@
     },
     mounted () {
     },
-    components: {Content}
+    components: {Layout}
   };
 
 </script>
