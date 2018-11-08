@@ -10,6 +10,7 @@
     <router-view slot="content"></router-view>
   </layout>
 </template>
+
 <script>
   /* 当前组件必要引入 */
   import Layout from '../components/layout';
@@ -32,5 +33,4 @@
     },
     components: {Layout}
   };
-
 </script>

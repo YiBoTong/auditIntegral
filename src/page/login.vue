@@ -13,11 +13,11 @@
           </span>
         </div>
         <el-form label-width="60px">
-          <el-form-item label="员工号" v-model="data">
-            <el-input type="text" placeholder="请输入员工号" v-model="data.user"></el-input>
+          <el-form-item label="员工号" v-model="loginForm">
+            <el-input type="text" placeholder="请输入员工号" v-model="loginForm.username"></el-input>
           </el-form-item>
           <el-form-item label="密码">
-            <el-input type="password" placeholder="请输入密码" v-model="data.password"></el-input>
+            <el-input type="password" placeholder="请输入密码" v-model="loginForm.password"></el-input>
           </el-form-item>
         </el-form>
         <el-button type="primary" size="medium" plain @click="login()">登录系统</el-button>
@@ -32,8 +32,8 @@
     props: [],
     data () {
       return {
-        data: {
-          user: 'admin',
+        loginForm: {
+          username: 'admin',
           password: 'admin'
         }
       };
@@ -44,8 +44,6 @@
       },
       // 登录系统
       login () {
-        console.log(this.data);
-        //
         this.$router.push({
           name: 'manage'
         });
@@ -58,9 +56,4 @@
     },
     components: {}
   };
-
 </script>
-
-<style lang="sass">
-  @import "../assets/sass/index.scss"
-</style>
