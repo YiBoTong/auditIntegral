@@ -62,5 +62,5 @@
 </script>
 
 <style lang="sass">
-  @import "../assets/sass/index.scss";
+  @import "../assets/sass/index.scss"
 </style>
