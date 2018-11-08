@@ -5,15 +5,22 @@
 -->
 <template>
   <layout>
-    <header slot="name"></header>
-    <menu slot="menu"></menu>
+    <web-header slot="header"></web-header>
+    <web-menu slot="menu"></web-menu>
     <router-view slot="content"></router-view>
+    <web-footer slot="footer"></web-footer>
   </layout>
 </template>
 
 <script>
   /* 当前组件必要引入 */
+
+  import WebHeader from '../components/webHeader';
   import Layout from '../components/layout';
+  import WebMenu from '../components/menu';
+  import WebContent from '../components/content';
+  import WebFooter from '../components/webFooter';
+
   export default {
     name: 'index',
     props: [],
@@ -31,6 +38,6 @@
     },
     mounted () {
     },
-    components: {Layout}
+    components: {Layout, WebMenu, WebHeader, WebContent, WebFooter}
   };
 </script>

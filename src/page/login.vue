@@ -4,7 +4,6 @@
 ****--@describe 登录
 -->
 <template>
-  <div>
     <div class="login-container">
       <div class="login">
         <div class="title">
@@ -23,7 +22,6 @@
         <el-button type="primary" size="medium" plain @click="login()">登录系统</el-button>
       </div>
     </div>
-  </div>
 </template>
 <script>
   /* 当前组件必要引入 */

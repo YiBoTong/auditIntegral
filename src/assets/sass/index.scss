@@ -1,11 +1,22 @@
 // 样式入口
 @import "public/reset";
-
+// app全局样式
+@import "app";
 // 登录页面
-@import "page/login.scss";
-//layout页面
-@import "components/layout.scss";
-//app全局样式
-@import "app.scss";
+@import "page/login";
+// layout页面
+@import "components/layout";
+// 子组件header样式
+@import "components/header";
+// 子组件menu样式
+@import "components/menu";
+// 子组件content样式
+@import "components/content";
+//子组件footer样式
+@import "components/footer";
+//workSpace index样式
+@import "page/workSpace/index";
+//workSpace 公共样式
+@import "public/workSpace";
 
 

@@ -1,3 +1,7 @@
-#app {
 
+html, body {
+  overflow-x: hidden;
+  .el-scrollbar__wrap {
+    overflow-x: hidden !important
+  }
 }

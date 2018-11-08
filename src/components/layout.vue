@@ -12,14 +12,20 @@
       <div class="menu">
         <slot name="menu"></slot>
       </div>
-      <div class="content">
-        <slot name="content"></slot>
-      </div>
+      <el-scrollbar>
+        <div class="content">
+          <slot name="content"></slot>
+        </div>
+      </el-scrollbar>
+    </div>
+    <div class="footer">
+      <slot name="footer"></slot>
     </div>
   </div>
 </template>
 <script>
   /* 当前组件必要引入 */
+
   export default {
     name: 'layout',
     props: [],

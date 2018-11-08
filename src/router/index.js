@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 
 import Index from '../page/index';
-import Other from './other';
+import workSpace from './workSpace';
 
 Vue.use(Router);
 
@@ -17,8 +17,9 @@ const routes = [
     meta: {
       requireAuth: true // 添加该字段，表示进入这个路由是需要登录的
     },
+    redirect: '/manage/workSpace',
     component: Index,
-    children: [Other]
+    children: [workSpace]
   },
   {
     path: '/login',
