@@ -3,66 +3,83 @@
   "data": [
     {
       "id": "001",
+      "icon": "el-icon-location",
       "title": "机构管理",
       "children": [
         {
           "id": "0011",
+          "routerName": "notice",
           "title": "通知通告"
         },
         {
           "id": "0012",
+          "routerName": "departmentManagement",
+
           "title": "部门管理"
         },
         {
           "id": "0013",
+          "routerName": "personnelManagement",
+
           "title": "人员管理"
         },
         {
           "id": "0014",
+          "routerName": "managementMethods",
           "title": "管理办法"
         }
       ]
     },
     {
       "id": "002",
+      "icon": "el-icon-document",
       "title": "稽核管理",
       "children": [
         {
           "id": "0021",
+          "routerName": "workManuscript",
           "title": "工作底稿"
         },
         {
           "id": "0022",
+          "routerName": "confirmation",
           "title": "确认书"
         },
         {
           "id": "0023",
+          "routerName": "punishNotice",
           "title": "处罚通知"
         },
         {
           "id": "0024",
+          "routerName": "integralTable",
           "title": "积分表"
         },
         {
           "id": "0025",
+          "routerName": "statisticalAnalysis",
           "title": "统计分析"
         }
       ]
     },
     {
-      "id": "002",
+      "id": "003",
+      "icon": "el-icon-menu",
       "title": "系统管理",
       "children": [
         {
           "id": "0031",
+          "routerName": "dictionaryManagement",
           "title": "字典管理"
         },
         {
           "id": "0032",
+          "routerName": "loginManagement",
           "title": "登录管理"
         },
         {
           "id": "0033",
+          "routerName": "systemLog",
           "title": "系统日志"
         }
       ]

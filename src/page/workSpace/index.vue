@@ -6,116 +6,128 @@
 <template>
   <div class="homo-page-container">
     <div class="home-page-header">
-      <el-card class="home-page-card">
-        <img src="">
-        <div class="card-content">
-          <span class="header-number-font-size">0</span>
-          <span class="header-title-font-size">我的积分</span>
-        </div>
-      </el-card>
-      <el-card class="home-page-card">
-        <img src="">
-        <div class="card-content">
-          <span class="header-number-font-size">0</span>
-          <span class="header-title-font-size">违规行为</span>
-        </div>
-      </el-card>
-      <el-card class="home-page-card">
-        <img src="">
-        <div class="card-content">
-          <span class="header-number-font-size">0</span>
-          <span class="header-title-font-size">确认书</span>
-        </div>
-      </el-card>
-      <el-card class="home-page-card">
-        <img src="">
-        <div class="card-content">
-          <span class="header-number-font-size">0</span>
-          <span class="header-title-font-size">惩罚通知书</span>
-        </div>
-      </el-card>
+      <el-row :gutter="20">
+        <el-col>
+          <el-card class="home-page-card">
+            <img src="">
+            <div class="card-content">
+              <span class="header-number-font-size">0</span>
+              <span class="header-title-font-size">我的积分</span>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="6">
+          <el-card class="home-page-card">
+            <img src="">
+            <div class="card-content">
+              <span class="header-number-font-size">0</span>
+              <span class="header-title-font-size">违规行为</span>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="6">
+          <el-card class="home-page-card">
+            <img src="">
+            <div class="card-content">
+              <span class="header-number-font-size">0</span>
+              <span class="header-title-font-size">确认书</span>
+            </div>
+          </el-card>
+        </el-col>
+        <el-col :span="6">
+          <el-card class="home-page-card">
+            <img src="">
+            <div class="card-content">
+              <span class="header-number-font-size">0</span>
+              <span class="header-title-font-size">惩罚通知书</span>
+            </div>
+          </el-card>
+        </el-col>
+      </el-row>
     </div>
     <div class="home-page-content">
       <div class="content-top">
-        <div class="content-top-left-table">
-          <el-card class="box-card">
-            <div slot="header" class="clearfix">
-              <span>通知公告</span>
-              <el-button style="float: right; padding: 3px 0" type="text">查看更多</el-button>
-            </div>
-            <el-table
-              :data="informData">
-              <el-table-column
-                prop="title"
-                label="标题"
-                width="180">
-              </el-table-column>
-              <el-table-column
-                prop="name"
-                label="发布者"
-                width="180">
-              </el-table-column>
-              <el-table-column
-                prop="date"
-                label="日期">
-              </el-table-column>
-            </el-table>
-          </el-card>
-        </div>
-        <div class="content-top-right-table">
-          <el-card class="box-card">
-            <div slot="header" class="clearfix">
-              <span>通知公告</span>
-              <el-button style="float: right; padding: 3px 0" type="text">查看更多</el-button>
-            </div>
-            <el-table
-              :data="informData">
-              <el-table-column
-                prop="title"
-                label="标题"
-                width="180">
-              </el-table-column>
-              <el-table-column
-                prop="name"
-                label="发布者"
-                width="180">
-              </el-table-column>
-              <el-table-column
-                prop="date"
-                label="日期">
-              </el-table-column>
-            </el-table>
-          </el-card>
-
-        </div>
+        <el-row :gutter="20">
+          <el-col :span="12">
+            <el-card class="box-card">
+              <div slot="header" class="clearfix">
+                <span>通知公告</span>
+                <el-button style="float: right; padding: 3px 0" type="text">查看更多</el-button>
+              </div>
+              <el-table
+                :data="informData">
+                <el-table-column
+                  prop="title"
+                  label="标题"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="name"
+                  label="发布者"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="date"
+                  label="日期">
+                </el-table-column>
+              </el-table>
+            </el-card>
+          </el-col>
+          <el-col :span="12">
+            <el-card class="box-card">
+              <div slot="header" class="clearfix">
+                <span>通知公告</span>
+                <el-button style="float: right; padding: 3px 0" type="text">查看更多</el-button>
+              </div>
+              <el-table
+                :data="informData">
+                <el-table-column
+                  prop="title"
+                  label="标题"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="name"
+                  label="发布者"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="date"
+                  label="日期">
+                </el-table-column>
+              </el-table>
+            </el-card>
+          </el-col>
+        </el-row>
       </div>
       <div class="content-bottom">
-        <div class="content-bottom-table">
-          <el-card class="box-card">
-            <div slot="header" class="clearfix">
-              <span>通知公告</span>
-              <el-button style="float: right; padding: 3px 0" type="text">查看更多</el-button>
-            </div>
-            <el-table
-              :data="informData">
-              <el-table-column
-                prop="title"
-                label="标题"
-                width="180">
-              </el-table-column>
-              <el-table-column
-                prop="name"
-                label="发布者"
-                width="180">
-              </el-table-column>
-              <el-table-column
-                prop="date"
-                label="日期">
-              </el-table-column>
-            </el-table>
-          </el-card>
-
-        </div>
+        <el-row>
+          <el-col :span="24">
+            <el-card class="box-card">
+              <div slot="header" class="clearfix">
+                <span>通知公告</span>
+                <el-button style="float: right; padding: 3px 0" type="text">查看更多</el-button>
+              </div>
+              <el-table
+                :data="informData">
+                <el-table-column
+                  prop="title"
+                  label="标题"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="name"
+                  label="发布者"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="date"
+                  label="日期">
+                </el-table-column>
+              </el-table>
+            </el-card>
+          </el-col>
+        </el-row>
       </div>
     </div>
   </div>

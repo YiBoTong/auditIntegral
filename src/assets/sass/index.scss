@@ -2,7 +2,7 @@
 @import "public/reset";
 // app全局样式
 @import "app";
-// 登录页面
+// login页面
 @import "page/login";
 // layout页面
 @import "components/layout";
@@ -18,5 +18,8 @@
 @import "page/workSpace/index";
 //workSpace 公共样式
 @import "public/workSpace";
+//organizationalManagement-notice样式
+@import "page/organizationalManagement/notice";
+
 
 

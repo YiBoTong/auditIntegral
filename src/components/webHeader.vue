@@ -41,7 +41,7 @@
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
      </span>
     </el-dialog>
-    <!--<change-password state="dialogVisible"></change-password>-->
+    <!--<change-password :state="dialogVisible"></change-password>-->
   </div>
 </template>
 <script>

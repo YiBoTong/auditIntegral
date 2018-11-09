@@ -5,36 +5,14 @@
 -->
 <template>
   <div class="menu-container">
+    <!--v-for 循环生成菜单-->
     <el-menu>
-      <el-submenu index="1">
+      <el-submenu v-for="item in menuData" :key="item.id" :index="item.id">
         <template slot="title">
-          <i class="el-icon-location"></i>
-          <span>机构管理</span>
+          <i :class="item.icon"></i>
+          <span>{{item.title}}</span>
         </template>
-        <el-menu-item index="1-1">通知公告</el-menu-item>
-        <el-menu-item index="1-2">部门管理</el-menu-item>
-        <el-menu-item index="1-3">人员管理</el-menu-item>
-        <el-menu-item index="1-4">管理办法</el-menu-item>
-      </el-submenu>
-      <el-submenu index="2">
-        <template slot="title">
-          <i class="el-icon-menu"></i>
-          <span>稽核管理</span>
-        </template>
-        <el-menu-item index="2-1">工作底稿</el-menu-item>
-        <el-menu-item index="2-2">确认书</el-menu-item>
-        <el-menu-item index="2-3">处罚通知</el-menu-item>
-        <el-menu-item index="2-4">积分表</el-menu-item>
-        <el-menu-item index="2-5">统计分析</el-menu-item>
-      </el-submenu>
-      <el-submenu index="3">
-        <template slot="title">
-          <i class="el-icon-document"></i>
-          <span>系统管理</span>
-        </template>
-        <el-menu-item index="3-1">字典管理</el-menu-item>
-        <el-menu-item index="3-2">登录管理</el-menu-item>
-        <el-menu-item index="3-3">系统日志</el-menu-item>
+        <el-menu-item v-for="childItem in item.children" :key="childItem.id" :index="childItem.id" @click="routerTo(childItem.routerName)">{{childItem.title}}</el-menu-item>
       </el-submenu>
     </el-menu>
   </div>
@@ -43,13 +21,22 @@
   /* 当前组件必要引入 */
   export default {
     name: 'myMenu',
-    props: [],
+    props: {
+      menuData: Array
+    },
     data () {
       return {};
     },
     methods: {
       // 初始化
       init () {
+      },
+      // 路由跳转
+      routerTo (value) {
+        let routerName = value;
+        this.$router.push({
+          name: routerName
+        });
       }
 
     },

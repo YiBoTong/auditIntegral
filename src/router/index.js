@@ -3,6 +3,9 @@ import Router from 'vue-router';
 
 import Index from '../page/index';
 import workSpace from './workSpace';
+import organizationalManagement from './organizationalManagement';
+import auditManagement from './auditManagement';
+import systemManagement from './systemManagement';
 
 Vue.use(Router);
 
@@ -19,7 +22,8 @@ const routes = [
     },
     redirect: '/manage/workSpace',
     component: Index,
-    children: [workSpace]
+    children: [
+      workSpace, ...organizationalManagement, ...auditManagement, ...systemManagement]
   },
   {
     path: '/login',
