@@ -30,6 +30,7 @@
     methods: {
       // 初始化
       init () {
+        console.log(typeof this.menuData);
       },
       // 路由跳转
       routerTo (value) {

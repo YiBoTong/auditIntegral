@@ -18,8 +18,30 @@
 @import "page/workSpace/index";
 //workSpace 公共样式
 @import "public/workSpace";
-//organizationalManagement-notice样式
+//机构管理
+//通知通告
 @import "page/organizationalManagement/notice";
-
-
-
+//部门管理
+@import "page/organizationalManagement/departmentManagement";
+//人员管理
+@import "page/organizationalManagement/personnelManagement";
+//管理办法
+@import "page/organizationalManagement/managementMethods";
+//稽核管理
+//工作底稿
+@import "page/auditManagement/workManuscript";
+//确认书
+@import "page/auditManagement/confirmation";
+//处罚通知
+@import "page/auditManagement/punishNotice";
+//积分表
+@import "page/auditManagement/integralTable";
+//统计分析
+@import "page/auditManagement/statisticalAnalysis";
+//系统管理
+//字典管理
+@import "page/systemManagement/dictionaryManagement";
+//登录管理
+@import "page/systemManagement/loginManagement";
+//系统日志
+@import "page/systemManagement/systemLog";

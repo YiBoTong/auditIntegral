@@ -20,7 +20,9 @@
           <el-dropdown-item divided>
             <div @click="changePassword">密码修改</div>
           </el-dropdown-item>
-          <el-dropdown-item>退出登录</el-dropdown-item>
+          <el-dropdown-item>
+            <div @click="exitLogin">退出登录</div>
+          </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
@@ -41,13 +43,10 @@
         <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
      </span>
     </el-dialog>
-    <!--<change-password :state="dialogVisible"></change-password>-->
   </div>
 </template>
 <script>
   /* 当前组件必要引入 */
-  import ChangePassword from './changePasswordDialog';
-
   export default {
     name: 'webHeader',
     props: [],
@@ -64,9 +63,16 @@
       // 初始化
       init () {
       },
+      // 修改密码
       changePassword () {
         this.dialogVisible = true;
         console.log(this.dialogVisible);
+      },
+      // 退出登录
+      exitLogin () {
+        this.$router.push({
+          name: 'login'
+        });
       }
     },
     created () {
@@ -74,7 +80,7 @@
     },
     mounted () {
     },
-    components: {ChangePassword}
+    components: {}
   };
 
 </script>

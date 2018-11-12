@@ -8,23 +8,23 @@ const router = [
   {
     path: 'workManuscript',
     name: 'workManuscript',
-    component: () => import(/* webpackChunkName: "notice" */'../page/auditManagement/workManuscript')
+    component: () => import(/* webpackChunkName: "notice" */'../page/auditManagement/workManuscript/index')
   }, {
     path: 'confirmation',
     name: 'confirmation',
-    component: () => import(/* webpackChunkName: "notice" */'../page/auditManagement/confirmation')
+    component: () => import(/* webpackChunkName: "notice" */'../page/auditManagement/confirmation/index')
   }, {
     path: 'punishNotice',
     name: 'punishNotice',
-    component: () => import(/* webpackChunkName: "notice" */'../page/auditManagement/punishNotice')
+    component: () => import(/* webpackChunkName: "notice" */'../page/auditManagement/punishNotice/index')
   }, {
     path: 'integralTable',
     name: 'integralTable',
-    component: () => import(/* webpackChunkName: "notice" */'../page/auditManagement/integralTable')
+    component: () => import(/* webpackChunkName: "notice" */'../page/auditManagement/integralTable/index')
   }, {
     path: 'statisticalAnalysis',
     name: 'statisticalAnalysis',
-    component: () => import(/* webpackChunkName: "notice" */'../page/auditManagement/statisticalAnalysis')
+    component: () => import(/* webpackChunkName: "notice" */'../page/auditManagement/statisticalAnalysis/index')
   }
 ];
 

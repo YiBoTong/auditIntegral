@@ -21,7 +21,10 @@ body {
 
 html, body #app {
   height: 100%;
+}
 
+.public-table .el-table {
+  height: calc(100vh - 300px);
 }
 
 article,

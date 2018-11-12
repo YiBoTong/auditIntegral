@@ -37,6 +37,7 @@
       // 获取菜单
       getMenu (res) {
         this.menuData = res.data.data;
+        console.log(typeof this.menuData);
       }
     },
     created () {

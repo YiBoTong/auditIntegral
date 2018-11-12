@@ -7,7 +7,7 @@
   <div class="homo-page-container">
     <div class="home-page-header">
       <el-row :gutter="20">
-        <el-col>
+        <el-col class="col-1">
           <el-card class="home-page-card">
             <img src="">
             <div class="card-content">
@@ -16,7 +16,7 @@
             </div>
           </el-card>
         </el-col>
-        <el-col :span="6">
+        <el-col class="col-2">
           <el-card class="home-page-card">
             <img src="">
             <div class="card-content">
@@ -25,7 +25,7 @@
             </div>
           </el-card>
         </el-col>
-        <el-col :span="6">
+        <el-col class="col-3">
           <el-card class="home-page-card">
             <img src="">
             <div class="card-content">
@@ -34,7 +34,7 @@
             </div>
           </el-card>
         </el-col>
-        <el-col :span="6">
+        <el-col class="col-4">
           <el-card class="home-page-card">
             <img src="">
             <div class="card-content">
@@ -55,14 +55,14 @@
                 <el-button style="float: right; padding: 3px 0" type="text">查看更多</el-button>
               </div>
               <el-table
-                :data="informData">
+                :data="noticeTableData">
                 <el-table-column
                   prop="title"
                   label="标题"
                   width="180">
                 </el-table-column>
                 <el-table-column
-                  prop="name"
+                  prop="publisher"
                   label="发布者"
                   width="180">
                 </el-table-column>
@@ -76,18 +76,18 @@
           <el-col :span="12">
             <el-card class="box-card">
               <div slot="header" class="clearfix">
-                <span>通知公告</span>
+                <span>回执项目</span>
                 <el-button style="float: right; padding: 3px 0" type="text">查看更多</el-button>
               </div>
               <el-table
-                :data="informData">
+                :data="returnItemTableData">
                 <el-table-column
                   prop="title"
                   label="标题"
                   width="180">
                 </el-table-column>
                 <el-table-column
-                  prop="name"
+                  prop="inspectionDepartmentsOrOutlets"
                   label="发布者"
                   width="180">
                 </el-table-column>
@@ -105,19 +105,34 @@
           <el-col :span="24">
             <el-card class="box-card">
               <div slot="header" class="clearfix">
-                <span>通知公告</span>
+                <span>积分列表</span>
                 <el-button style="float: right; padding: 3px 0" type="text">查看更多</el-button>
               </div>
               <el-table
-                :data="informData">
+                :data="integralListTableData">
                 <el-table-column
-                  prop="title"
-                  label="标题"
+                  label="序号"
+                  type="index"
                   width="180">
                 </el-table-column>
                 <el-table-column
-                  prop="name"
-                  label="发布者"
+                  prop="item"
+                  label="项目"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="numberOfViolations"
+                  label="违规数量"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="numberOfViolations"
+                  label="扣分数"
+                  width="180">
+                </el-table-column>
+                <el-table-column
+                  prop="numberOfViolations"
+                  label="累计积分"
                   width="180">
                 </el-table-column>
                 <el-table-column
@@ -134,34 +149,28 @@
 </template>
 <script>
   /* 当前组件必要引入 */
+  import Axios from 'axios';
+
   export default {
     name: 'workSpace',
     props: [],
     data () {
       return {
-        informData: [
-          {
-            date: '2016-05-02',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1518 弄'
-          }, {
-            date: '2016-05-04',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1517 弄'
-          }, {
-            date: '2016-05-01',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1519 弄'
-          }, {
-            date: '2016-05-03',
-            name: '王小虎',
-            address: '上海市普陀区金沙江路 1516 弄'
-          }]
+        noticeTableData: undefined,
+        returnItemTableData: undefined,
+        integralListTableData: undefined
       };
     },
     methods: {
       // 初始化
       init () {
+        Axios.get('../../static/mock/tableData.json').then(this.getTableData);
+      },
+      // 获取tables数据
+      getTableData (res) {
+        this.noticeTableData = res.data.noticeTableData;
+        this.returnItemTableData = res.data.returnItemTableData;
+        this.integralListTableData = res.data.integralListTableData;
       }
 
     },

@@ -8,15 +8,15 @@ const router = [
   {
     path: 'dictionaryManagement',
     name: 'dictionaryManagement',
-    component: () => import(/* webpackChunkName: "notice" */'../page/systemManagement/dictionaryManagement')
+    component: () => import(/* webpackChunkName: "notice" */'../page/systemManagement/dictionaryManagement/index')
   }, {
     path: 'loginManagement',
     name: 'loginManagement',
-    component: () => import(/* webpackChunkName: "notice" */'../page/systemManagement/loginManagement')
+    component: () => import(/* webpackChunkName: "notice" */'../page/systemManagement/loginManagement/index')
   }, {
     path: 'systemLog',
     name: 'systemLog',
-    component: () => import(/* webpackChunkName: "notice" */'../page/systemManagement/systemLog')
+    component: () => import(/* webpackChunkName: "notice" */'../page/systemManagement/systemLog/index')
   }];
 
 export default router;

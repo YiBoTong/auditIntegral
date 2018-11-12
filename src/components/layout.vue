@@ -12,7 +12,7 @@
       <div class="menu">
         <slot name="menu"></slot>
       </div>
-      <el-scrollbar>
+      <el-scrollbar ref="scrollbar">
         <div class="content">
           <slot name="content"></slot>
         </div>
