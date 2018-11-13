@@ -5,34 +5,62 @@
 -->
 <template>
   <div class="form-container">
-    <el-button @click="backList">返回列表</el-button>
-    <el-form ref="createForm" label-width="100px" class="createForm" model="createFormData">
-      <el-form-item label="标题" prop="title">
-        <el-input type="password"></el-input>
-      </el-form-item>
-      <el-form-item label="活动区域" prop="region">
-        <el-select v-model="createFormData.notificationScope" placeholder="请选择活动区域">
-          <el-option label="全部" value=""></el-option>
-          <el-option label="xx部门" value=""></el-option>
-          <el-option label="xx网点" value=""></el-option>
-          <el-option label="xx人员" value=""></el-option>
-        </el-select>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary">完成</el-button>
-        <el-button @click="resetForm(createForm)">重置</el-button>
-      </el-form-item>
-    </el-form>
+    <div v-if="paramsData == null">
+      <div class="form-header">
+        <div class="header-left">
+          <el-button @click="backList">返回列表</el-button>
+        </div>
+        <div class="header-right">
+          <el-button type="primary" @click="submitForm(formData)">创建</el-button>
+          <el-button @click="resetForm('refForm')">重置</el-button>
+        </div>
+      </div>
+      <el-form :model="formData" ref="refForm" label-width="100px">
+        <el-form-item label="标题" prop="title">
+          <el-input type="text" v-model="formData.title"></el-input>
+        </el-form-item>
+        <el-form-item label="发布范围" prop="notificationScope">
+          <el-input type="text" v-model="formData.notificationScope"></el-input>
+        </el-form-item>
+      </el-form>
+    </div>
+    <div v-else>
+      <div class="form-header">
+        <div class="header-left">
+          <el-button @click="backList">返回列表</el-button>
+        </div>
+        <div class="header-right">
+          <el-button type="primary" @click="submitForm(formData)">修改</el-button>
+          <el-button @click="resetForm('refForm')">重置</el-button>
+        </div>
+      </div>
+      <el-form :model="formData" ref="refForm" label-width="100px">
+        <el-form-item label="标题" prop="title">
+          <el-input type="text" v-model="formData.title"></el-input>
+        </el-form-item>
+        <el-form-item label="发布范围" prop="notificationScope">
+          <el-input type="text" v-model="formData.notificationScope"></el-input>
+        </el-form-item>
+        <el-form-item label="状态" prop="state">
+          <el-input type="text" v-model="formData.state"></el-input>
+        </el-form-item>
+        <el-form-item label="最后操作时间" prop="finalOperationTime">
+          <el-input type="text" v-model="formData.finalOperationTime"></el-input>
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 <script>
   /* 当前组件必要引入 */
   export default {
     name: 'noticeInput',
-    props: [],
+    props: {
+      paramsData: Object
+    },
     data () {
       return {
-        createFormData: {
+        formData: {
           title: '',
           notificationScope: ''
         }
@@ -49,13 +77,17 @@
       // 重置表单
       resetForm (formName) {
         this.$refs[formName].resetFields();
+      },
+      // 提交表单
+      submitForm (data) {
+        console.log(data);
       }
-
     },
     created () {
       this.init();
     },
     mounted () {
+      if (this.paramsData) this.formData = this.paramsData;
     },
     components: {}
   };

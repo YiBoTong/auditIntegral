@@ -27,6 +27,10 @@ html, body #app {
   height: calc(100vh - 300px);
 }
 
+.el-table::before {
+  background-color: transparent !important;
+}
+
 article,
 aside,
 footer,
