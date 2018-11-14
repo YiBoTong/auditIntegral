@@ -8,7 +8,6 @@ import store from './vuex';
 import Directives from './lib/directives';
 import Filters from './lib/filters';
 import { fetch } from './lib/ajax';
-
 import './assets/sass/index.scss';
 
 Vue.config.productionTip = false;

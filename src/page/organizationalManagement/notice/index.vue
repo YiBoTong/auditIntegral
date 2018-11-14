@@ -9,7 +9,7 @@
       <notice-list v-if="view==='list'" @view="viewCall" :paramsData="paramsData"></notice-list>
     </keep-alive>
     <notice-input v-if="view==='input'" @view="viewCall" :paramsData="paramsData"></notice-input>
-    <notice-view v-if="view==='view'" @view="viewCall" :paramsData="paramsData"></notice-view>
+    <notice-view v-if="view==='show'" @view="viewCall" :paramsData="paramsData"></notice-view>
   </div>
 </template>
 <script>

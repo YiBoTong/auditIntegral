@@ -1,7 +1,7 @@
 <!--
 ****--@date     2018-11-12 14:04
 ****--@author   XXL
-****--@describe 通知公告查看
+****--@describe 字典管理
 -->
 <template>
   <div class="show-container">
@@ -29,7 +29,7 @@
 <script>
   /* 当前组件必要引入 */
   export default {
-    name: 'noticeShow',
+    name: 'dictionaryManagementShow',
     props: {
       paramsData: Object
     },

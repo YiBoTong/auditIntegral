@@ -12,7 +12,7 @@
       <div class="top-form">
         <el-form>
           <el-form-item label="标题:">
-            <el-input placeholder="请输入公告标题"></el-input>
+            <el-input placeholder="请输入公告标题" prefix-icon="el-icon-search"></el-input>
             <el-button type="primary" plain>搜索</el-button>
           </el-form-item>
         </el-form>
@@ -21,7 +21,9 @@
     <div class="public-table">
       <el-table
         :data="paramsData"
-        style="width: 100%">
+        style="width: 100%"
+        :cell-style="cellStyle"
+        @cell-click="cellClick">
         <el-table-column
           prop="date"
           label="序号"
@@ -120,6 +122,22 @@
             message: '已取消删除'
           });
         });
+      },
+      // 设置单元格style
+      cellStyle ({row, column, rowIndex, columnIndex}) {
+        if (columnIndex === 2) {
+          return 'color:#409EFF;cursor: pointer;';
+        } else {
+          return '';
+        }
+      },
+      // 点击查看
+      cellClick (row, column, cell, event) {
+        if (column.property === 'title') {
+          this.publishSubscribe('show', row);
+        } else {
+          return '';
+        }
       }
     },
     created () {

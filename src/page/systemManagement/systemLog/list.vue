@@ -4,15 +4,15 @@
 ****--@describe 机构管理-通知公告
 -->
 <template>
-  <div class="notice-container">
-    <div class="notice-top">
+  <div class="system-log-container">
+    <div class="system-log-top">
       <div class="top-create">
-        <el-button type="primary" plain @click="inputNotice(null)">创建</el-button>
+        <el-button type="primary" plain @click="handelUpdateOrCreate(null)">创建</el-button>
       </div>
       <div class="top-form">
         <el-form>
-          <el-form-item label="标题:">
-            <el-input placeholder="请输入公告标题"></el-input>
+          <el-form-item label="系统日志:">
+            <el-input placeholder="请输入" prefix-icon="el-icon-search"></el-input>
             <el-button type="primary" plain>搜索</el-button>
           </el-form-item>
         </el-form>
@@ -21,7 +21,9 @@
     <div class="public-table">
       <el-table
         :data="paramsData"
-        style="width: 100%">
+        style="width: 100%"
+        :cell-style="cellStyle"
+        @cell-click="cellClick">
         <el-table-column
           prop="date"
           label="序号"
@@ -33,9 +35,9 @@
           label="操作"
           width="180">
           <template slot-scope="scope">
-            <el-button @click="handleClick(scope.row)" type="text" size="small">发布</el-button>
-            <el-button type="text" size="small" @click="inputNotice(scope.row)">修改</el-button>
-            <el-button @click="handleClick(scope.row)" type="text" size="small">删除</el-button>
+            <el-button @click="handlePublish(scope.row)" type="text" size="small">发布</el-button>
+            <el-button type="text" size="small" @click="handelUpdateOrCreate(scope.row)">修改</el-button>
+            <el-button @click="handleDelete(scope.row)" type="text" size="small">删除</el-button>
           </template>
         </el-table-column>
         <el-table-column
@@ -57,7 +59,7 @@
         </el-table-column>
       </el-table>
     </div>
-    <div class="notice-pagination">
+    <div class="system-log-pagination">
       <el-pagination
         @size-change="handleSizeChange"
         @current-change="handleCurrentChange"
@@ -72,24 +74,70 @@
 </template>
 <script>
   /* 当前组件必要引入 */
+  import Axios from 'axios';
+
   export default {
-    name: 'noticeList',
-    props: {
-      paramsData: Array
-    },
+    name: 'systemLogList',
+    props: [],
     data () {
-      return {};
+      return {
+        paramsData: undefined
+      };
     },
     methods: {
       // 初始化
       init () {
-        console.log(this.paramsData);
+        Axios.get('../../static/mock/tableData.json').then(this.getTableData);
       },
-      inputNotice (obj) {
-        this.todoNotice('input', obj);
+      // 获取table数据
+      getTableData (res) {
+        this.paramsData = res.data.noticeBulletinData;
       },
-      todoNotice (type, obj) {
+      // 发布
+      handlePublish () {
+      },
+      // 修改 或 创建
+      handelUpdateOrCreate (obj) {
+        this.publishSubscribe('input', obj);
+      },
+      // 向父组件传递信息
+      publishSubscribe (type, obj) {
         this.$emit('view', type, obj);
+      },
+      // 删除
+      handleDelete (row) {
+        // 调用删除接口
+        this.$confirm('确定删除？', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
+      // 设置单元格style
+      cellStyle ({row, column, rowIndex, columnIndex}) {
+        if (columnIndex === 2) {
+          return 'color:#409EFF;cursor: pointer;';
+        } else {
+          return '';
+        }
+      },
+      // 点击查看
+      cellClick (row, column, cell, event) {
+        if (column.property === 'title') {
+          this.publishSubscribe('show', row);
+        } else {
+          return '';
+        }
       }
     },
     created () {

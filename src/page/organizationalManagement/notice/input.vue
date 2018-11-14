@@ -17,10 +17,10 @@
       </div>
       <el-form :model="formData" ref="refForm" label-width="100px">
         <el-form-item label="标题" prop="title">
-          <el-input type="text" v-model="formData.title"></el-input>
+          <el-input type="text" v-model="formData.title" clearable></el-input>
         </el-form-item>
         <el-form-item label="发布范围" prop="notificationScope">
-          <el-input type="text" v-model="formData.notificationScope"></el-input>
+          <el-input type="text" v-model="formData.notificationScope" clearable></el-input>
         </el-form-item>
       </el-form>
     </div>
@@ -36,16 +36,16 @@
       </div>
       <el-form :model="formData" ref="refForm" label-width="100px">
         <el-form-item label="标题" prop="title">
-          <el-input type="text" v-model="formData.title"></el-input>
+          <el-input type="text" v-model="formData.title" clearable></el-input>
         </el-form-item>
         <el-form-item label="发布范围" prop="notificationScope">
-          <el-input type="text" v-model="formData.notificationScope"></el-input>
+          <el-input type="text" v-model="formData.notificationScope" clearable></el-input>
         </el-form-item>
         <el-form-item label="状态" prop="state">
-          <el-input type="text" v-model="formData.state"></el-input>
+          <el-input type="text" v-model="formData.state" clearable></el-input>
         </el-form-item>
         <el-form-item label="最后操作时间" prop="finalOperationTime">
-          <el-input type="text" v-model="formData.finalOperationTime"></el-input>
+          <el-input type="text" v-model="formData.finalOperationTime" clearable></el-input>
         </el-form-item>
       </el-form>
     </div>
@@ -87,7 +87,12 @@
       this.init();
     },
     mounted () {
-      if (this.paramsData) this.formData = this.paramsData;
+      if (this.paramsData) {
+        let data = JSON.parse(JSON.stringify(this.paramsData));
+        this.formData = data;
+      } else {
+        return '';
+      }
     },
     components: {}
   };

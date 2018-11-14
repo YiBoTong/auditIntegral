@@ -113,7 +113,7 @@
                 <el-table-column
                   label="序号"
                   type="index"
-                  width="180">
+                  width="150">
                 </el-table-column>
                 <el-table-column
                   prop="item"
@@ -123,17 +123,17 @@
                 <el-table-column
                   prop="numberOfViolations"
                   label="违规数量"
-                  width="180">
+                  width="150">
                 </el-table-column>
                 <el-table-column
                   prop="numberOfViolations"
                   label="扣分数"
-                  width="180">
+                  width="150">
                 </el-table-column>
                 <el-table-column
                   prop="numberOfViolations"
                   label="累计积分"
-                  width="180">
+                  width="150">
                 </el-table-column>
                 <el-table-column
                   prop="date"
