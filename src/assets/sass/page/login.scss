@@ -11,7 +11,6 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255,255,255,1);
   }
   .title {
     display: flex;
@@ -20,16 +19,26 @@ body, html {
     padding: 0 0 30px 0;
     span {
       font-family: SourceHanSansSC-regular;
-      font-size: 48px;
+      font-size: 26px;
       line-height: 71px;
+      color: #FFF;
     }
   }
   .el-input {
     padding: 0 0 30px 0;
-    width: 240px;
+  }
+  .el-input input {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #FFF;
+    background-color: #2D3A4B;
+    height: 47px;
   }
   .el-form-item {
+    width: 450px;
     margin: 0px;
+  }
+  .el-button {
+    width: 450px;
   }
 }
 

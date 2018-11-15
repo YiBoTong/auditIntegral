@@ -6,11 +6,11 @@
 <template>
   <div class="header-container">
     <div class="header-logo">
-      <img :src="headerLogo.logo" :alt="headerLogo.alt">
+      <img :src="headerLogo.logo" :alt="headerLogo.alt" @click="goBack">
     </div>
     <div class="header-administrator">
       <i class="el-icon-info"></i>
-      <span>姓名（机构或者单位名称）</span>
+      <span @click="goBack">姓名（机构或者单位名称）</span>
       <el-dropdown>
         <span class="el-dropdown-link">
             <i class="el-icon-arrow-down el-icon--right"></i>
@@ -72,6 +72,12 @@
       exitLogin () {
         this.$router.push({
           name: 'login'
+        });
+      },
+      // 返回控制台
+      goBack () {
+        this.$router.push({
+          name: 'manage'
         });
       }
     },

@@ -6,7 +6,13 @@
 <template>
   <div class="menu-container">
     <!--v-for 循环生成菜单-->
-    <el-menu>
+    <el-menu :show-timeout="200"
+             :default-active="$route.path"
+             :collapse="isCollapse"
+             mode="vertical"
+             background-color="#304156"
+             text-color="#bfcbd9"
+             active-text-color="#409EFF">
       <el-submenu v-for="item in menuData" :key="item.id" :index="item.id">
         <template slot="title">
           <i :class="item.icon"></i>

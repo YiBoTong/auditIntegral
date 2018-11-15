@@ -11,15 +11,15 @@
           稽核积分系统
           </span>
       </div>
-      <el-form label-width="60px">
-        <el-form-item label="员工号" v-model="loginForm">
+      <el-form v-model="loginForm">
+        <el-form-item>
           <el-input type="text" placeholder="请输入员工号" v-model="loginForm.username"></el-input>
         </el-form-item>
-        <el-form-item label="密码">
+        <el-form-item>
           <el-input type="password" placeholder="请输入密码" v-model="loginForm.password"></el-input>
         </el-form-item>
       </el-form>
-      <el-button type="primary" size="medium" plain @click="login()">登录系统</el-button>
+      <el-button type="primary" size="medium" @click="login()">登录系统</el-button>
     </div>
   </div>
 </template>
